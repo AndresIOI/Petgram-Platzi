@@ -7,8 +7,7 @@
     "build": "webpack",
     "verce-build": "npm run build",
     "dev": "webpack-dev-server",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "standard"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -34,14 +33,7 @@
   },
   "dependencies": {
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "standard": {
-    "ignore": [
-      "/api/**"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.2.0"
   }
 }
