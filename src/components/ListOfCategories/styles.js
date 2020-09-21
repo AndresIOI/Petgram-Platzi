@@ -1,4 +1,4 @@
-import Styled from 'styled-components';
+import Styled, { css } from 'styled-components';
 import { fadeIn } from '../../styles/animation';
 
 export const List = Styled.ul`
@@ -6,7 +6,8 @@ export const List = Styled.ul`
  overflow: scroll;
  width: 100%;
  padding: 0px;
- &.fixed {
+ ${props => props.fixed && css`  
+ 
   background: #fff;
   border-radius: 60px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
@@ -19,7 +20,7 @@ export const List = Styled.ul`
   top: -1px;
   transform: scale(.8);
   z-index: 1;
- }
+  `}
 `;
 
 export const Item = Styled.li`

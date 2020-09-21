@@ -2,19 +2,33 @@ import React, { useState, useEffect } from 'react';
 import { Category } from '../Category';
 import { List, Item } from './styles';
 
+function useCategoriesData() {
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect( () => {
+    setLoading(true);
+    window.fetch('https://petgram-server-4r4xqom0r.vercel.app/categories')
+     .then(response => response.json())
+     .then(categories => {
+      setCategories(categories);
+      setLoading(false);
+     })
+     .catch(error => console.log(error));
+   }, []);
+
+   return { categories, loading }
+}
+
 export const ListOfCategories = () => {
 
- const [categories, setCategories] = useState([]);
+
+
+ const { categories, loading } = useCategoriesData();
+
  const [showFixed, setShowFixed] = useState(false);
 
- useEffect( () => {
-  window.fetch('https://petgram-server-4r4xqom0r.vercel.app/categories')
-   .then(response => response.json())
-   .then(categories => {
-    setCategories(categories);
-   })
-   .catch(error => console.log(error));
- }, []);
+
 
  useEffect(()=> {
    const onScroll = e => {
@@ -29,7 +43,7 @@ export const ListOfCategories = () => {
  },[showFixed]);
 
  const renderList = (fixed) => (
-  <List className={fixed ? 'fixed' : ''}>
+  <List fixed={fixed}>
  {
   categories.map(category => {
    return(
@@ -41,6 +55,10 @@ export const ListOfCategories = () => {
  }
 </List>
  );
+
+ if(loading) {
+   return "Cargando...";
+ }
 
  return(
    <>

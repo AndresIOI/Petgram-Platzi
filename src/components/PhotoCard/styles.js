@@ -1,6 +1,11 @@
 import Styled from 'styled-components';
 import { fadeIn } from '../../styles/animation';
 
+
+export const Article = Styled.article`
+ min-height: 320px;
+`;
+
 export const ImgWrapper = Styled.div`
  position: relative;
  display: block;
