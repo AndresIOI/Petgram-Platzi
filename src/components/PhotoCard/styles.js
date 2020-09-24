@@ -28,12 +28,3 @@ export const Img = Styled.img`
 
 `;
 
-export const Button = Styled.button`
- display: flex;
- align-items: center;
- padding: 8px;
-
- svg {
-  margin-right: 10px;
- }
-`;
