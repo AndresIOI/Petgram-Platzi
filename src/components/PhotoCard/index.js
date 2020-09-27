@@ -4,7 +4,7 @@ import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { useNearScreen } from '../../hooks/useNearScreen';
 import { useUpdateLikePhoto } from '../../hooks/useUpdateLikePhoto';
 import { LikeButton } from '../LikeButton';
-
+import { Link } from '@reach/router';
 const DEFAULT_IMG = 'https://images.unsplash.com/photo-1515619363794-e826f7de3487?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60';
 
 export const PhotoCard = ({id, likes = 0, src = DEFAULT_IMG}) => {
@@ -25,11 +25,11 @@ export const PhotoCard = ({id, likes = 0, src = DEFAULT_IMG}) => {
    {
     show &&
     <>
-    <a href={`/?detail=${id}`}>
+    <Link to={`/details/${id}`}>
      <ImgWrapper>
       <Img src={src} />
      </ImgWrapper>
-    </a>
+    </Link>
     <LikeButton likes={likes} liked={liked} onClick={handledLikeClick}/>
    </>
    }

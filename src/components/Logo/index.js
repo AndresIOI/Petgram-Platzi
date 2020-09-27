@@ -1,9 +1,11 @@
-import * as React from "react"
-import { Svg } from './styles'
+import * as React from "react";
+import { Svg } from './styles';
+import { Link } from '@reach/router';
 
 export function Logo (props) {
   return (
-    <Svg
+    <Link to='/'>
+      <Svg
       width={387.96}
       height={124.44}
       viewBox="56.02 12.78 387.96 124.44"
@@ -49,6 +51,7 @@ export function Logo (props) {
       </g>
       <style />
     </Svg>
+    </Link>
   )
 }
 
